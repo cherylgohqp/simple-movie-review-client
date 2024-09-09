@@ -27,6 +27,7 @@ const Hero = (movies) => {
                                         <h4>{movie.title}</h4>
                                     </div>
                                     <div className="movie-buttons-container">
+                                        {/* note: trailerLink last 11 characters gives the youtube video id */}
                                         <Link to={`/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`}>
                                             <div className="play-button-icon-container">
                                                 <FontAwesomeIcon className="play-button-icon"

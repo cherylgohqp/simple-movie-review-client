@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/navheader/Header';
+import Trailer from './components/trailer/Trailer';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>} />
         <Route index element={<Home movies={movies}/>}></Route> {/* this is the index route */}
+        <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
       </Routes>
     </div>
   );
