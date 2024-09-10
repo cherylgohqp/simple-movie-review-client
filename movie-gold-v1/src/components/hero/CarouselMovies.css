@@ -2,6 +2,59 @@
     width: 100vw;
     background-color: black;
 }
+
+/* Skeleton for movie carousel */
+.skeleton-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.skeleton-paper {
+    width: 100%; /* Adjust width to match your movie cards */
+    height: 100%; /* Adjust height to match your movie cards */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #333; /* Adjust this to match your theme */
+}
+
+
+.skeleton-backdrop {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.skeleton-details {
+    display: flex;
+    padding-top:8px;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+}
+
+.skeleton-texts-container {
+    display: flex;
+    flex-direction: column;
+}
+/* .skeleton-avatar {
+     
+    /* border-radius: 50%; */
+    /* background-color: #555; Background color for the avatar skeleton */
+/* }  */
+
+/* .skel/ */
+/* 
+.skeleton-subtitle {
+    width: 60%;
+    height: 20px;
+    background-color: #666; /* Background color for subtitle skeleton */
+/* } */ 
 .movie-poster{
     height: 300px;
     border: 1px solid gold;

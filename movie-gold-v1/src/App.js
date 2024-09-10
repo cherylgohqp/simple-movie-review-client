@@ -12,11 +12,13 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [singleMovie, setSingleMovie] = useState();
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getMovies = async () => {
     try{
       const response = await api.get('/api/v1/movies');
       setMovies(response.data);
+      setIsLoading(false);
     }
     catch(error){
       console.log(error);
@@ -45,7 +47,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Layout/>} />
-        <Route index element={<Home movies={movies}/>}></Route> {/* this is the index route */}
+        <Route index element={<Home movies={movies} isLoading={isLoading}/>}></Route> {/* this is the index route */}
         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
         <Route path='/Reviews/:imdbId' element={<Reviews movie={singleMovie} getMovieData={getMovieData} reviews={reviews} setReviews={setReviews}/>}></Route>
       </Routes>

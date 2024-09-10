@@ -1,7 +1,7 @@
 import React from "react";
 import './CarouselMovies.css';
 import Carousel from 'react-material-ui-carousel';
-import { Paper } from '@mui/material';
+import { Paper, Skeleton } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Link, useNavigate} from "react-router-dom";
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +9,26 @@ import Button from 'react-bootstrap/Button';
 
 const CarouselMovies = (movies) => {
     const navigate = useNavigate();
-
     const reviews = (movieId) => {
         navigate(`/Reviews/${movieId}`);
     }
 
     return (
         <div className='movie-carousel-container'>
-            <Carousel>
+            {movies.isLoading ? (
+                <div className="skeleton-carousel">
+                    <Paper style={{ backgroundColor: '#414040' }} className="skeleton-paper">
+                        <Skeleton sx={{ bgcolor: '#333' }} variant="rectangular" className="skeleton-backdrop" animation="wave" height={300}/>
+                        <div className="skeleton-details">
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className="skeleton-avatar" animation="wave" height={200} width={150} />
+                            <div className="skeleton-texts-container">
+                                
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-title" animation="wave" height={50} width={400} />
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-subtitle" animation="wave" height={50} width={300}/>
+                            </div>
+                        </div>
+                    </Paper>
+            </div>):(<Carousel>
                 {
                     movies && movies['movies'].length > 0 ? (movies['movies'].map((movie) => {
                         return (
@@ -50,8 +62,8 @@ const CarouselMovies = (movies) => {
                     </Paper>
                         )
                     })
-                    ) : <div>emptyyy??</div>}
-            </Carousel>
+                    ) : null}
+            </Carousel>)}
         </div>
         // <div>
         //     <Carousel>
