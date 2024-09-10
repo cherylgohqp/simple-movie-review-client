@@ -44,7 +44,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
   return (
     <Container>
         <Row>
-            <Col><h3>Reviews</h3></Col>
+            <Col><h3 style={{paddingTop:"16px"}}>Reviews</h3></Col>
         </Row>
         <Row className="mt-2">
             <Col>
