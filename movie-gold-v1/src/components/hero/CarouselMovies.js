@@ -7,8 +7,13 @@ import {Link, useNavigate} from "react-router-dom";
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 
-const Hero = (movies) => {
-    console.log("movies", movies['movies']);
+const CarouselMovies = (movies) => {
+    const navigate = useNavigate();
+
+    const reviews = (movieId) => {
+        navigate(`/Reviews/${movieId}`);
+    }
+
     return (
         <div className='movie-carousel-container'>
             <Carousel>
@@ -70,4 +75,4 @@ const Hero = (movies) => {
     )
 }
 
-export default Hero;
+export default CarouselMovies;

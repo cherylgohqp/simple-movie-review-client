@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "../hero/CarouselMovies";
+import CarouselMovies from "../hero/CarouselMovies";
 
 const Home = (movies) => {
     console.log("home movies", movies.movies);
     return (
-        <Hero movies={movies.movies} />
+        <CarouselMovies movies={movies.movies} />
     )
 }
 
