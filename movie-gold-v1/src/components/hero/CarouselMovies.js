@@ -19,7 +19,6 @@ const CarouselMovies = (movies) => {
             <Carousel>
                 {
                     movies && movies['movies'].length > 0 ? (movies['movies'].map((movie) => {
-                        console.log("movieeee", movie);
                         return (
                             <Paper key={movie.imdbId}>
                         <div className = 'movie-card-container'>
