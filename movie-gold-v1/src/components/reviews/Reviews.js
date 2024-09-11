@@ -14,7 +14,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
 
     useEffect(()=>{
         getMovieData(movieId);
-    },[])
+    },[movieId, reviews])
 
     const addReview = async (e) =>{
         e.preventDefault();
@@ -48,7 +48,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
         </Row>
         <Row className="mt-2">
             <Col>
-                <img src={movie?.poster} alt="" />
+                <img key={movie?.imdbId} src={movie?.poster} alt="" />
             </Col>
             <Col>
                 {
@@ -68,7 +68,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
                 {
                     reviews?.map((r) => {
                         return(
-                            <>
+                            <React.Fragment key={r._id}>
                                 <Row>
                                     <Col>{r.body}</Col>
                                 </Row>
@@ -77,7 +77,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
                                         <hr />
                                     </Col>
                                 </Row>                                
-                            </>
+                            </React.Fragment>
                         )
                     })
                 }
