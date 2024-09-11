@@ -9,6 +9,7 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .skeleton-paper {
@@ -16,7 +17,7 @@
     height: 100%; /* Adjust height to match your movie cards */
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    max-width: 1200px;
     padding: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -38,23 +39,27 @@
     gap: 32px;
 }
 
+.skeleton-avatar {
+    width: 60%;
+    max-width: 200px; 
+}
 .skeleton-texts-container {
     display: flex;
+    width: 100%;
     flex-direction: column;
 }
-/* .skeleton-avatar {
-     
-    /* border-radius: 50%; */
-    /* background-color: #555; Background color for the avatar skeleton */
-/* }  */
-
-/* .skel/ */
-/* 
 .skeleton-subtitle {
-    width: 60%;
-    height: 20px;
-    background-color: #666; /* Background color for subtitle skeleton */
-/* } */ 
+    width: 100%;
+    min-width: 100px;
+    max-width: 500px;
+}
+
+.skeleton-title {
+    width: 100%;
+    max-width: 600px;
+    min-width: 250px;
+}
+
 .movie-poster{
     height: 300px;
     border: 1px solid gold;
@@ -121,4 +126,27 @@
         align-items: center;
         top:20px;
     }
+
+    .skeleton-details {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .skeleton-avatar {
+        width: 60%;
+        max-width: 200px;
+        max-height: 300px;
+    }
+
+    .skeleton-texts-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skeleton-title, .skeleton-subtitle {
+        width: 60%;
+    }
 }
+

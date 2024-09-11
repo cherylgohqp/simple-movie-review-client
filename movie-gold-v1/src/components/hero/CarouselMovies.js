@@ -20,11 +20,11 @@ const CarouselMovies = (movies) => {
                     <Paper style={{ backgroundColor: '#414040' }} className="skeleton-paper">
                         <Skeleton sx={{ bgcolor: '#333' }} variant="rectangular" className="skeleton-backdrop" animation="wave" height={300}/>
                         <div className="skeleton-details">
-                            <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className="skeleton-avatar" animation="wave" height={200} width={150} />
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className="skeleton-avatar" animation="wave" height={250} width={"30%"} />
                             <div className="skeleton-texts-container">
                                 
-                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-title" animation="wave" height={50} width={400} />
-                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-subtitle" animation="wave" height={50} width={300}/>
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-title" animation="wave" height={50} width={"90%"} />
+                            <Skeleton sx={{ bgcolor: '#333' }} variant="text" className="skeleton-subtitle" animation="wave" height={50} width={"60%"}/>
                             </div>
                         </div>
                     </Paper>
