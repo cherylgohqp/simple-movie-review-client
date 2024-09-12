@@ -41,7 +41,8 @@
 
 .skeleton-avatar {
     width: 60%;
-    max-width: 200px; 
+    min-width: 150px;
+    max-width: 250px; 
 }
 .skeleton-texts-container {
     display: flex;
@@ -134,8 +135,11 @@
     }
 
     .skeleton-avatar {
+        width: clamp(90px, 60%, 250px);
+        /*  above substitutes the below:
         width: 60%;
-        max-width: 200px;
+        min-width: 90px;
+        max-width: 250px; */
         max-height: 300px;
     }
 
@@ -146,7 +150,8 @@
     }
 
     .skeleton-title, .skeleton-subtitle {
-        width: 60%;
+        width: 40%;
+        min-width: 80px;
     }
 }
 
