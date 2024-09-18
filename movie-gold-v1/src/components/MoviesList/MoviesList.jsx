@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import SearchBar from "../SearchBar/SearchBar";
+import MovieCard from "./MovieCard";
+import "./MoviesList.css";
 
 const MoviesList = (movies) => {
   const [searchResults, setSearchResults] = useState("");
@@ -25,16 +27,25 @@ const MoviesList = (movies) => {
   }, [matchFilters, movies]);
 
   return (
-    <div>
-      <h1>Movies List</h1>
-      <SearchBar
-        value={searchResults}
-        onChange={handleSearchInputChange}
-        placeholder={"Search Movie Title..."}
-      />
-      {filteredMovies.map((movie) => {
-        return <li key={movie.title}>{movie.title}</li>;
-      })}
+    <div className="landing-page-wrapper">
+      <h1>Movies Catalogue</h1>
+      <div className="search-wrapper">
+        <SearchBar
+          value={searchResults}
+          onChange={handleSearchInputChange}
+          placeholder={"Search Movie Title..."}
+        />
+      </div>
+      <div className="content-wrapper">
+        <div className="movies-cards-grid">
+          {filteredMovies.map((movie) => {
+            return (
+              // <div>
+              <MovieCard movie={movie} />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.movie-card-wrapper {
+    border-radius: 4px;
+    background-color: white;
+    /* border: #e1e1e1 solid 1px; */
+    /* border: red solid 1px; */
+    /* min-width: 200px; */
+    width:100%;;
+    /* min-height: 254px; */
+    cursor: pointer;
+    /* &:hover:not(:disabled) {
+      background-color: var(--bg-interactive-secondary-hover);
+    } */
+  
+}
+
+.movie-card-poster > img{
+    height: 100%;
+    width: 100%;
+}
+
+.movie-title{
+    color: black;
+}
