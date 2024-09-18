@@ -7,7 +7,7 @@ const SearchBar = ({ searchQuery, onChange, placeholder }) => {
   const handleSubmit = (e) => e.preventDefault();
 
   return (
-    <header style={{ width: "50%" }}>
+    <header style={{ width: "45%" }}>
       {/* use a form to create semantic structure for html */}
       <form className="search" onSubmit={handleSubmit}>
         <input
