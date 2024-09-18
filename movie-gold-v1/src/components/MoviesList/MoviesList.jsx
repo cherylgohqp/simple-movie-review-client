@@ -28,7 +28,7 @@ const MoviesList = (movies) => {
 
   return (
     <div className="landing-page-wrapper">
-      <h1>Movies Catalogue</h1>
+      <div className="movie-list-header">Movies Catalogue</div>
       <div className="search-wrapper">
         <SearchBar
           value={searchResults}
