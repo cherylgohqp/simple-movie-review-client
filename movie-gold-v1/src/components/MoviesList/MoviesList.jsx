@@ -3,6 +3,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import MovieCard from "./MovieCard";
 import styles from "./MoviesList.module.css";
 import {useNavigate} from "react-router-dom";
+import { Paper, Skeleton } from '@mui/material';
+import { range } from "lodash";
 
 const MoviesList = (movies) => {
   const [searchResults, setSearchResults] = useState("");
@@ -30,7 +32,7 @@ const MoviesList = (movies) => {
 
   useEffect(() => {
     setFilteredMovies(movies["movies"].filter(matchFilters));
-    console.log("movies loading? ", movies.isLoading);
+    console.log("movies length", movies["movies"].length);
   }, [matchFilters, movies]);
 
   return (
@@ -45,12 +47,16 @@ const MoviesList = (movies) => {
       </div>
       <div className={styles["content-wrapper"]}>
         <div className={styles["movies-cards-grid"]}>
-          {filteredMovies.map((movie) => {
+          {(filteredMovies && filteredMovies.length) ? (filteredMovies.map((movie,index) => {
             return (
               // <div>
-              <MovieCard movie={movie} onClick={()=> onCardClick(movie.imdbId)}/>
+              <MovieCard key={`${movie.imdbId}-${index}`} movie={movie} onClick={()=> onCardClick(movie.imdbId)}/>
             );
-          })}
+          })) : (
+            range(18).map((count) => <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className={styles["skeleton-movie-card"]} animation="wave" width={"100%"} />)
+          )
+          }
+          {/* {} */}
         </div>
       </div>
     </div>

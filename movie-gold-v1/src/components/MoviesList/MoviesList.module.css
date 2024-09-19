@@ -30,6 +30,10 @@
         padding-bottom: 200px;
 }
 
+.skeleton-movie-card{
+  min-height: 280px;
+  height:100%;
+}
 /* .movies-cards-grid::-webkit-scrollbar {
     width: 11px;
   }
