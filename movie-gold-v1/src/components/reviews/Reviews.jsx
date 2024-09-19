@@ -8,7 +8,7 @@ import React from 'react';
 import styles from './Reviews.module.css';
 import { range } from "lodash";
 
-const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
+const Reviews = ({getMovieData,movie,reviews,setReviews, isLoading}) => {
 
     const revText = useRef();
     let params = useParams();
@@ -71,23 +71,34 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
                     </>
                 }
                 {
-                    (reviews && movie) ? (                 
-                        reviews?.map((r) => {
-                            return(
-                                <React.Fragment key={r._id}>
-                                    <Row>
-                                        <Col>{r.body}</Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <hr />
-                                        </Col>
-                                    </Row>                                
-                                </React.Fragment>
+                        isLoading ? (
+                            // Display skeletons while loading
+                            range(8).map((count) => (
+                                <Skeleton key={count} sx={{ bgcolor: '#333' }} variant="text" animation="wave" width={"80%"} height={36} />
+                            ))
+                        ) : (
+                            // If not loading, check for reviews
+                            reviews && reviews.length > 0 ? (
+                                reviews.map((r) => (
+                                    <React.Fragment key={r._id}>
+                                        <Row>
+                                            <Col>{r.body}</Col>
+                                        </Row>
+                                        <Row>
+                                            <Col>
+                                                <hr />
+                                            </Col>
+                                        </Row>
+                                    </React.Fragment>
+                                ))
+                            ) : (
+                                // Display message if no reviews
+                                <Row>
+                                    <Col className={styles["no-reviews"]}>No reviews yet.</Col>
+                                </Row>
                             )
-                        }))
-                     : range(8).map((count) => <Skeleton sx={{ bgcolor: '#333' }} variant="text" animation="wave" width={"80%"} height={36} />)
-                }
+                        )
+                    }
             </Col>
         </Row>
         <Row>

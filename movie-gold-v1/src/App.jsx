@@ -14,7 +14,7 @@ function App() {
   const [singleMovie, setSingleMovie] = useState();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoadingMovieData, setIsLoadingMovieData] = useState(true);
   const getMovies = async () => {
     try {
       const response = await api.get("/api/v1/movies");
@@ -32,6 +32,7 @@ function App() {
       const singleMovie = response.data;
       setSingleMovie(singleMovie);
       setReviews(singleMovie.reviewIds);
+      setIsLoadingMovieData(false);
     } catch (error) {
       console.log(error);
     }
@@ -60,6 +61,7 @@ function App() {
               getMovieData={getMovieData}
               reviews={reviews}
               setReviews={setReviews}
+              isLoading={isLoadingMovieData}
             />
           }
         ></Route>

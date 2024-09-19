@@ -14,7 +14,6 @@ const MoviesList = (movies) => {
 
   const matchFilters = useCallback(
     (movie) => {
-      console.log("movie in match filter", movie);
       const matchesSearchQuery = movie.title
         .toLowerCase()
         .includes(searchResults.toLowerCase());
@@ -33,7 +32,6 @@ const MoviesList = (movies) => {
 
   useEffect(() => {
     setFilteredMovies(movies["movies"].filter(matchFilters));
-    console.log("movies length", movies["movies"].length);
   }, [matchFilters, movies]);
 
   return (
