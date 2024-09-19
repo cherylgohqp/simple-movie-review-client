@@ -1,0 +1,39 @@
+.movie-card-wrapper {
+    border-radius: 4px;
+    background-color: white;
+    /* border: #e1e1e1 solid 1px; */
+    /* border: red solid 1px; */
+    /* min-width: 200px; */
+    width:100%;;
+    /* min-height: 254px; */
+    cursor: pointer;
+    /* &:hover:not(:disabled) {
+      background-color: var(--bg-interactive-secondary-hover);
+    } */
+  
+}
+
+.movie-card-poster > img{
+    height: 100%;
+    width: 100%;
+}
+
+.movie-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:16px;
+}
+.movie-title{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    color: #5d6d7c;
+    /* padding: 8px; */
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    margin: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 240px;
+}
