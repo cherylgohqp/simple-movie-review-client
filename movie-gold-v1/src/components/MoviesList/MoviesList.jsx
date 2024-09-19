@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import MovieCard from "./MovieCard";
-import "./MoviesList.css";
+import styles from "./MoviesList.module.css";
+import {useNavigate} from "react-router-dom";
 
 const MoviesList = (movies) => {
   const [searchResults, setSearchResults] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const navigate = useNavigate();
 
   const matchFilters = useCallback(
     (movie) => {
@@ -22,26 +24,31 @@ const MoviesList = (movies) => {
     setSearchResults(event.target.value);
   };
 
+  const onCardClick = (movieId) => {
+    navigate(`/Reviews/${movieId}`);
+}
+
   useEffect(() => {
     setFilteredMovies(movies["movies"].filter(matchFilters));
+    console.log("movies loading? ", movies.isLoading);
   }, [matchFilters, movies]);
 
   return (
-    <div className="landing-page-wrapper">
-      <div className="movie-list-header">Movies Catalogue</div>
-      <div className="search-wrapper">
+    <div className={styles["landing-page-wrapper"]}>
+      <div className={styles["movie-list-header"]}>Movies Catalogue</div>
+      <div className={styles["search-wrapper"]}>
         <SearchBar
           value={searchResults}
           onChange={handleSearchInputChange}
           placeholder={"Search Movie Title..."}
         />
       </div>
-      <div className="content-wrapper">
-        <div className="movies-cards-grid">
+      <div className={styles["content-wrapper"]}>
+        <div className={styles["movies-cards-grid"]}>
           {filteredMovies.map((movie) => {
             return (
               // <div>
-              <MovieCard movie={movie} />
+              <MovieCard movie={movie} onClick={()=> onCardClick(movie.imdbId)}/>
             );
           })}
         </div>

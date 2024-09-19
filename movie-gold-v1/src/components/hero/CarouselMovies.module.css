@@ -62,7 +62,7 @@
 
 .movie-poster{
     height: 300px;
-    border: 1px solid gold;
+    border: 1px solid #fdd000;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -110,7 +110,7 @@
 .play-button-icon{
     padding:0px;
     margin:0px;
-    color:gold;
+    color:#fdd000;
     font-size: 3rem;
     transition: 0.3s;
     cursor: pointer;
@@ -118,6 +118,12 @@
 .play-button-icon:hover{
     font-size: 4rem;
     color:white;
+}
+
+.movie-review-button{
+    /* background-color: #5d6d7c!important;  */
+    color: #EDEAE5 !important;
+    /* border:#5d6d7c !important; */
 }
 
 @media only screen and (max-width: 800px) {

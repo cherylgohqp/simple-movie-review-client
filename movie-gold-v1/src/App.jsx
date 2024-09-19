@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 import api from "./api/axiosConfig";
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className={styles["App"]}>
       <Header />
       <Routes>
         <Route path="/" element={<Layout />} />

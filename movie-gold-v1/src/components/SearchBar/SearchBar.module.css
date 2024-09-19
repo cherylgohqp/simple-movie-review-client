@@ -1,15 +1,16 @@
 .search {
-    width: 95%;
+    width: 50%;
     border: 1px solid #e4e7eb;
     border-radius: 8px;
     overflow: hidden;
     box-sizing: border-box;
     background-color: white;
     display: flex;
-    flex-flow: row nowrap;
     transition-property: box-shadow, background-color, border;
     transition-duration: 200ms;
     outline: none;
+    align-items: center;
+    justify-content: space-between;
   }
   
   .search:focus-within {
@@ -26,37 +27,17 @@
   }
   
   .search-input {
-    padding: 8px;
+    padding: 8px 8px 8px 16px;
     width: 85%;
   }
   
   .search-button {
     width: 15%;
     font-size: 1.5rem;
-    padding-right: 0.5em;
     color: gray;
     display: grid;
     place-content: center;
+    height:24px;
+    width: 24px;
+    padding-right:24px;
   }
-  
-  /* @media (min-width: 576px) {
-    .search {
-      font-size: 1.5rem;
-    }
-  
-    .search-button {
-      font-size: 2rem;
-    }
-  } */
-/*   
-  @media (min-width: 800px) {
-    .search {
-      width: 100%;
-      /* font-size: 2rem; */
-    /* }
-  
-    .search-button {
-      padding-right: 0.5em;
-      /* font-size: 3rem; */
-    /* }
-  } */ 

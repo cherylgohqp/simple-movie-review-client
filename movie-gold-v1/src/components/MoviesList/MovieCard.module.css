@@ -18,6 +18,22 @@
     width: 100%;
 }
 
+.movie-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:16px;
+}
 .movie-title{
-    color: black;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    color: #5d6d7c;
+    /* padding: 8px; */
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    margin: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 240px;
 }

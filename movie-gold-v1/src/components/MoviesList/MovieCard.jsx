@@ -1,4 +1,4 @@
-import "./MovieCard.css";
+import styles from "./MovieCard.module.css";
 import { useRef, useState } from "react";
 
 const MovieCard = ({
@@ -9,7 +9,7 @@ const MovieCard = ({
   //   children,
   //   actions,
   //   onDoubleClick,
-  //   onClick,
+    onClick,
   // height = 254,
 }) => {
   // const Default_Width = 123;
@@ -33,7 +33,8 @@ const MovieCard = ({
   return (
     <div
       //   ref={divRef}
-      className="movie-card-wrapper"
+      className={styles["movie-card-wrapper"]}
+      onClick={onClick}
       // style={{ minHeight: `${height}px`, minWidth: `${Default_Width}px` }}
     >
       {/* <div className="project-card-snapshot"> */}
@@ -43,10 +44,13 @@ const MovieCard = ({
           </div>
         )} */}
       {/* <div className="model-snapshot">{movie.poster}</div> */}
-      <div className="movie-card-poster">
+      <div className={styles["movie-card-poster"]}>
         <img src={movie.poster} alt="" />
       </div>
-      <p className="movie-title">{movie.title}</p>
+      <div className={styles["movie-details"]}>
+
+      <div className={styles["movie-title"]}>{movie.title}</div>
+      </div>
       {/* {badge && <div className={classes["badge"]}>{badge}</div>} */}
       {/* </div> */}
       {/* <div className={`${classes["project-card-content"]} ${isSelected ? classes["selected"] : ""}`}>{children}</div> */}
