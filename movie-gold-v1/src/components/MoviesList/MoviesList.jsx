@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import MovieCard from "./MovieCard";
 import styles from "./MoviesList.module.css";
 import {useNavigate} from "react-router-dom";
+import {Container, Row, Col} from 'react-bootstrap';
 import { Paper, Skeleton } from '@mui/material';
 import { range } from "lodash";
 
@@ -36,8 +37,10 @@ const MoviesList = (movies) => {
   }, [matchFilters, movies]);
 
   return (
-    <div className={styles["landing-page-wrapper"]}>
-      <div className={styles["movie-list-header"]}>Movies Catalogue</div>
+    <Container>
+
+    {/* <div className={styles["landing-page-wrapper"]}> */}
+      <h3 className={styles["movie-list-header"]}>Movies Catalogue</h3>
       <div className={styles["search-wrapper"]}>
         <SearchBar
           value={searchResults}
@@ -49,17 +52,16 @@ const MoviesList = (movies) => {
         <div className={styles["movies-cards-grid"]}>
           {(filteredMovies && filteredMovies.length) ? (filteredMovies.map((movie,index) => {
             return (
-              // <div>
               <MovieCard key={`${movie.imdbId}-${index}`} movie={movie} onClick={()=> onCardClick(movie.imdbId)}/>
             );
           })) : (
-            range(18).map((count) => <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className={styles["skeleton-movie-card"]} animation="wave" width={"100%"} />)
+            range(15).map((count) => <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className={styles["skeleton-movie-card"]} animation="wave" width={"100%"} />)
           )
           }
-          {/* {} */}
         </div>
       </div>
-    </div>
+    {/* </div> */}
+    </Container>
   );
 };
 

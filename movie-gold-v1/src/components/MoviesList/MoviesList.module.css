@@ -1,9 +1,5 @@
-.landing-page-wrapper{
-    padding: 16px;
-}
-
 .movie-list-header{
-    font-size: 24px;
+    padding-top: 16px;
 }
 .search-wrapper{
     display: flex;
@@ -14,7 +10,6 @@
     grid-column-start: span 5;
     padding-top: 24px;
     width: 100%;
-    /* min-width: 1100px; */
     flex-direction: column;
     margin: 0px;
   }

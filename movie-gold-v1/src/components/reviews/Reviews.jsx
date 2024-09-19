@@ -3,8 +3,10 @@ import api from '../../api/axiosConfig';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import ReviewForm from '../reviewform/ReviewForm';
-
-import React from 'react'
+import { Paper, Skeleton } from '@mui/material';
+import React from 'react';
+import styles from './Reviews.module.css';
+import { range } from "lodash";
 
 const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
 
@@ -42,13 +44,16 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
     }
 
   return (
-    <Container>
+    <Container >
         <Row>
             <Col><h3 style={{paddingTop:"16px"}}>Reviews</h3></Col>
         </Row>
         <Row className="mt-2">
             <Col>
-                <img key={movie?.imdbId} src={movie?.poster} alt="" />
+                {movie ? 
+                <img key={movie?.imdbId} src={movie?.poster} alt="" className={styles["movie-poster"]} />
+            : <Skeleton sx={{ bgcolor: '#333' }} variant="rounded" className={styles["skeleton-review-poster"]} animation="wave" width={"90%"} />    
+            }
             </Col>
             <Col>
                 {
@@ -66,20 +71,22 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
                     </>
                 }
                 {
-                    reviews?.map((r) => {
-                        return(
-                            <React.Fragment key={r._id}>
-                                <Row>
-                                    <Col>{r.body}</Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <hr />
-                                    </Col>
-                                </Row>                                
-                            </React.Fragment>
-                        )
-                    })
+                    (reviews && movie) ? (                 
+                        reviews?.map((r) => {
+                            return(
+                                <React.Fragment key={r._id}>
+                                    <Row>
+                                        <Col>{r.body}</Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <hr />
+                                        </Col>
+                                    </Row>                                
+                                </React.Fragment>
+                            )
+                        }))
+                     : range(8).map((count) => <Skeleton sx={{ bgcolor: '#333' }} variant="text" animation="wave" width={"80%"} height={36} />)
                 }
             </Col>
         </Row>
