@@ -46,7 +46,8 @@ function App() {
     <div className={styles["App"]}>
       <Header />
       <Routes>
-        <Route path="/" element={<Layout />} />
+        <Route path="/" element={<Layout />}> 
+        {/* children of parent route should be rendered inside layout instead? */}
         <Route
           index
           element={<Home movies={movies} isLoading={isLoading} />}
@@ -66,6 +67,7 @@ function App() {
           }
         ></Route>
         <Route path="/Movies" element={<MoviesList movies={movies} />}></Route>
+        </Route>
       </Routes>
     </div>
   );
